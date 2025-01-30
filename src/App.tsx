@@ -1,8 +1,7 @@
-import { Header } from "./components/Header/Header";
-import { TodoInput } from "./components/TodoInput/TodoInput";
-
 import "./global.css";
 import "./App.module.css";
+
+import { Header } from "./components/Header/Header";
 import { TodoBoard } from "./components/TodoBoard/TodoBoard";
 
 function App() {
@@ -10,7 +9,6 @@ function App() {
     <>
       <Header />
       <main>
-        <TodoInput />
         <TodoBoard />
       </main>
     </>
