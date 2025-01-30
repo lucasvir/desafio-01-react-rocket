@@ -1,0 +1,8 @@
+body {
+    background: var(--gray-600);
+}
+
+main {
+    margin: 0 auto;
+    width: 736px;
+}
