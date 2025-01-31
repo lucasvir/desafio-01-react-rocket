@@ -1,6 +1,6 @@
 import { Trash } from "@phosphor-icons/react";
 import styles from "./Todo.module.css";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface TodoProps {
   content: string;
@@ -13,12 +13,15 @@ export function Todo({
   onChekFinishedTodos,
   onDeleteTodo,
 }: TodoProps) {
+  const [isChecked, setIsChecked] = useState(false);
+
   const handleDeleteTodo = () => {
     onDeleteTodo(content);
   };
 
   const handleChekedTodo = (event: ChangeEvent<HTMLInputElement>) => {
-    onChekFinishedTodos(event.target.checked)
+    onChekFinishedTodos(event.target.checked);
+    setIsChecked(!isChecked);
   };
 
   return (
@@ -30,7 +33,7 @@ export function Todo({
           id="todo"
           onChange={handleChekedTodo}
         />
-        <p>{content}</p>
+        <p className={isChecked ? `${styles.checked_style}` : ""}>{content}</p>
       </div>
 
       <button onClick={handleDeleteTodo}>

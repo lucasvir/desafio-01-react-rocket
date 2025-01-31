@@ -11,13 +11,13 @@ export function TodoBoard() {
 
   const onSubmitNewTodo = (newTodo: string) => {
     setTodos([...todos, newTodo]);
-    setTodosCount(todos.length);
+    setTodosCount(todos.length + 1);
   };
 
   const onDeleteTodo = (todoContent: string) => {
     const newTodoList = todos.filter((todo) => todo !== todoContent);
     setTodos(newTodoList);
-    setTodosCount(todos.length);
+    setTodosCount(todos.length - 1);
   };
 
   const onChekFinishedTodos = (isChecked: boolean) => {
@@ -45,6 +45,7 @@ export function TodoBoard() {
         <div className={styles.board}>
           {todos.map((todo) => (
             <Todo
+              key={todo}
               content={todo}
               onChekFinishedTodos={onChekFinishedTodos}
               onDeleteTodo={onDeleteTodo}
